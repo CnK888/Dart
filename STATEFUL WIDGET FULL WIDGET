@@ -1,0 +1,56 @@
+import 'package:flutter/material.dart';
+
+class MyStatefulWidget extends StatefulWidget {
+  @override
+  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Stateful Widget Example'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Counter: $_counter',
+              style: TextStyle(fontSize: 24),
+            ),
+            SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: _incrementCounter,
+              child: Text('Increment'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+Penjelasan:
+
+MyStatefulWidget adalah kelas Stateful Widget.
+Kita memiliki _MyStatefulWidgetState yang merupakan kelas turunan dari State<MyStatefulWidget>, yang mengatur dan mempertahankan status widget.
+Pada _MyStatefulWidgetState, kita memiliki variabel _counter yang akan digunakan sebagai status yang dapat berubah.
+Pada _incrementCounter(), kita menggunakan setState untuk memberi tahu Flutter bahwa ada perubahan pada status _counter dan meminta UI diperbarui.
+Pada build, kita mengembalikan tampilan widget dengan menggunakan beberapa widget di dalamnya.
+AppBar adalah widget AppBar yang menampilkan judul.
+Center adalah widget Center yang memusatkan widget lain di dalamnya.
+Column adalah widget Column yang menampung beberapa widget secara vertikal.
+Text adalah widget Text yang menampilkan nilai _counter.
+SizedBox adalah widget yang digunakan untuk memberikan jarak antara widget lainnya.
+ElevatedButton adalah widget tombol yang memiliki fungsi onPressed yang memanggil _incrementCounter saat tombol ditekan.
+Dalam contoh ini, kita menggunakan Stateful Widget untuk melacak dan memperbarui status _counter setiap kali tombol ditekan, dan mengubah tampilan sesuai dengan perubahan tersebut.

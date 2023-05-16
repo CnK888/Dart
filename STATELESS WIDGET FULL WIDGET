@@ -1,0 +1,47 @@
+import 'package:flutter/material.dart';
+
+class MyStatelessWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Stateless Widget Example'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            'Hello, World!',
+            style: TextStyle(fontSize: 24),
+          ),
+          SizedBox(height: 16),
+          Image.network(
+            'https://example.com/image.jpg',
+            width: 200,
+            height: 200,
+          ),
+          SizedBox(height: 16),
+          ElevatedButton(
+            onPressed: () {
+              // Aksi saat tombol ditekan
+            },
+            child: Text('Click Me'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+Penjelasan:
+
+MyStatelessWidget adalah kelas Stateless Widget.
+Pada build, kita mengembalikan tampilan widget dengan menggunakan beberapa widget di dalamnya.
+AppBar adalah widget AppBar yang menampilkan judul.
+Column adalah widget Column yang menampung beberapa widget secara vertikal.
+Text adalah widget Text yang menampilkan teks "Hello, World!".
+SizedBox adalah widget yang digunakan untuk memberikan jarak antara widget lainnya.
+Image.network adalah widget Image yang menampilkan gambar dari URL.
+ElevatedButton adalah widget tombol yang memiliki fungsi onPressed yang dapat diisi dengan aksi saat tombol ditekan.
+Dalam contoh ini, kita menggunakan beberapa widget seperti Text, Image, SizedBox, dan ElevatedButton untuk membuat tampilan sederhana dengan teks, gambar, dan tombol.

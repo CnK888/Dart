@@ -1,0 +1,32 @@
+Koding untuk mengatur routing atau navigasi antar halaman dalam aplikasi Flutter:
+
+import 'package:flutter/material.dart';
+import 'package:your_app/home_screen.dart';
+import 'package:your_app/splash_screen.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Your App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => SplashScreen(),
+        '/home': (context) => HomeScreen(),
+      },
+    );
+  }
+}
+
+Dalam contoh di atas, kita menggunakan initialRoute untuk menentukan halaman awal aplikasi, yaitu SplashScreen. Kemudian kita mendefinisikan routes untuk menghubungkan rute dengan widget yang sesuai. Misalnya, /home mengarah ke HomeScreen.
+
+Untuk berpindah dari satu halaman ke halaman lain, Anda dapat menggunakan metode Navigator.pushNamed(context, '/nama_rute'). Misalnya, jika Anda ingin pindah dari SplashScreen ke HomeScreen, Anda dapat menggunakan Navigator.pushNamed(context, '/home').
+
+Pastikan untuk mengganti your_app dengan nama direktori dan package aplikasi Anda, serta mengganti HomeScreen dan SplashScreen dengan widget yang sesuai di aplikasi Anda.

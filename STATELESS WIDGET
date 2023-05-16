@@ -1,0 +1,35 @@
+//Stateless Widget adalah salah satu jenis widget dalam Flutter yang tidak memiliki keadaan (state) internal yang dapat berubah. Artinya, 
+//tampilan dari Stateless Widget hanya bergantung pada parameter yang diberikan pada saat pembuatan widget dan tidak akan berubah seiring waktu. 
+//Stateless Widget bersifat statis atau tidak berubah.
+
+//Berikut adalah beberapa widget yang sering digunakan dalam Stateless Widget:
+
+//Container: Digunakan untuk mengatur tata letak, ukuran, dan dekorasi dari widget lain yang ada di dalamnya.
+//Text: Digunakan untuk menampilkan teks pada antarmuka pengguna.
+//Image: Digunakan untuk menampilkan gambar pada antarmuka pengguna.
+//RaisedButton: Digunakan untuk membuat tombol yang menonjol dengan tampilan yang sedikit terangkat.
+//FlatButton: Digunakan untuk membuat tombol datar tanpa efek bayangan atau tampilan terangkat.
+//IconButton: Digunakan untuk membuat tombol dengan ikon saja.
+//TextField: Digunakan untuk menerima input teks dari pengguna.
+//ListView: Digunakan untuk menampilkan daftar item secara berurutan dalam antarmuka pengguna.
+//Column: Digunakan untuk menyusun widget secara vertikal.
+//Row: Digunakan untuk menyusun widget secara horizontal.
+//Selain widget di atas, ada banyak lagi widget lain yang dapat digunakan dalam Stateless Widget untuk membangun tampilan antarmuka pengguna yang lebih kompleks dan interaktif.
+
+
+import 'package:flutter/material.dart';
+
+class MyStatelessWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.blue,
+      child: Text(
+        'Hello, World!',
+        style: TextStyle(fontSize: 20, color: Colors.white),
+      ),
+    );
+  }
+}
+
+

@@ -1,0 +1,89 @@
+/////////////////////////////////////////////////////////// Splash_Screen
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+
+class SplashScreen extends StatefulWidget {
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    _navigateToNextScreen();
+  }
+
+  Future<void> _navigateToNextScreen() async {
+    // Tunggu 3 detik
+    await Future.delayed(Duration(seconds: 3));
+
+    // Pindah ke halaman berikutnya (misalnya halaman HomeScreen)
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (_) => HomeScreen()),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.blue, // Atur warna latar belakang
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/logo.png', // Mengambil gambar logo dari aset
+              width: 200, // Atur lebar logo
+              height: 200, // Atur tinggi logo
+            ),
+            SizedBox(height: 16),
+            Text(
+              'My App',
+              style: TextStyle(
+                fontSize: 24,
+                color: Colors.white, // Atur warna teks
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Home'),
+      ),
+      body: Center(
+        child: Text('Welcome to Home Screen!'),
+      ),
+    );
+  }
+}
+
+/////////////////////////////////////////////////////////// MAIN
+import 'package:flutter/material.dart';
+import 'package:your_app/splash_screen.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Your App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: SplashScreen(), // Menetapkan SplashScreen sebagai halaman awal
+    );
+  }
+}

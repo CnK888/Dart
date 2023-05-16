@@ -1,0 +1,232 @@
+Container       : Digunakan untuk mengatur tata letak, ukuran, dan dekorasi dari widget lain yang ada di dalamnya.
+Text            : Digunakan untuk menampilkan teks pada antarmuka pengguna.
+Image           : Digunakan untuk menampilkan gambar pada antarmuka pengguna.
+RaisedButton    : Digunakan untuk membuat tombol yang menonjol dengan tampilan yang sedikit terangkat.
+FlatButton      : Digunakan untuk membuat tombol datar tanpa efek bayangan atau tampilan terangkat.
+IconButton      : Digunakan untuk membuat tombol dengan ikon saja.
+TextField       : Digunakan untuk menerima input teks dari pengguna.
+ListView        : Digunakan untuk menampilkan daftar item secara berurutan dalam antarmuka pengguna.
+Column          : Digunakan untuk menyusun widget secara vertikal.
+Row             : Digunakan untuk menyusun widget secara horizontal.
+
+Padding         : Digunakan untuk mengatur jarak antara konten dalam container dengan tepi container tersebut. 
+                  Anda dapat mengatur padding dalam berbagai bentuk seperti EdgeInsets.all, EdgeInsets.symmetric, EdgeInsets.only, dan sebagainya. 
+                  Misalnya, dengan padding: EdgeInsets.all(16.0), semua sisi konten di dalam container akan memiliki jarak 16 piksel dari tepi container.
+
+Child           : Digunakan untuk menempatkan satu widget tunggal di dalam container. 
+                  Widget yang ditetapkan sebagai child akan diatur secara horizontal dan vertikal berdasarkan parameter yang ditentukan oleh Container, 
+                  seperti align, width, height, dan sebagainya. 
+                  Misalnya, dengan child: Text('Hello, Flutter!'), teks tersebut akan menjadi konten utama di dalam container.
+
+Children        : Digunakan pada widget seperti Column, Row, ListView, dan sejenisnya untuk menambahkan beberapa widget sebagai anak-anak di dalamnya. 
+                  Anda dapat menambahkan widget secara berurutan dan mereka akan ditampilkan secara sesuai dengan tata letak kolom, baris, atau daftar yang ditentukan oleh widget induk. 
+                  Misalnya, dengan children: [Text('Item 1'), Text('Item 2'), Text('Item 3')], tiga teks tersebut akan ditampilkan dalam kolom secara berurutan.
+
+----------------------//////CONTAINER
+Container(
+  width: 200,
+  height: 200,
+  color: Colors.blue,
+  child: Text(
+    'Container Widget',
+    style: TextStyle(fontSize: 20, color: Colors.white),
+  ),
+)
+----------------------//////
+
+
+----------------------//////Text
+Text(
+  'Hello, Flutter!',
+  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+)
+----------------------//////
+
+
+----------------------//////Image
+Image.asset('assets/images/logo.png')
+----------------------//////
+
+
+----------------------//////RaisedButton
+RaisedButton(
+  onPressed: () {
+    // Aksi yang akan dilakukan saat tombol ditekan
+  },
+  child: Text('Click Me'),
+)
+----------------------//////
+
+
+----------------------//////FlatButton
+FlatButton(
+  onPressed: () {
+    // Aksi yang akan dilakukan saat tombol ditekan
+  },
+  child: Text('Flat Button'),
+)
+----------------------//////
+
+
+----------------------//////IconButton
+IconButton(
+  icon: Icon(Icons.favorite),
+  onPressed: () {
+    // Aksi yang akan dilakukan saat tombol ditekan
+  },
+)
+----------------------//////
+
+
+----------------------//////TextField
+TextField(
+  onChanged: (value) {
+    // Aksi yang akan dilakukan saat teks berubah
+  },
+  decoration: InputDecoration(
+    labelText: 'Enter your name',
+  ),
+)
+----------------------//////
+
+
+----------------------//////ListView
+ListView(
+  children: [
+    Text('Item 1'),
+    Text('Item 2'),
+    Text('Item 3'),
+  ],
+)
+----------------------//////
+
+
+----------------------//////Column
+Column(
+  children: [
+    Text('Widget 1'),
+    Text('Widget 2'),
+    Text('Widget 3'),
+  ],
+)
+)
+----------------------//////
+
+
+----------------------//////Row
+Row(
+  children: [
+    Text('Left'),
+    Text('Right'),
+  ],
+)
+----------------------//////
+
+
+----------------------//////Padding
+Container(
+  padding: EdgeInsets.all(16.0), // Menambahkan padding sebesar 16 pada semua sisi
+  child: Text('Hello, Flutter!'),
+)
+----------------------//////
+
+
+----------------------//////Child
+Container(
+  child: Text('Hello, Flutter!'),
+)
+----------------------//////
+
+
+----------------------//////Children
+Column(
+  children: [
+    Text('Widget 1'),
+    Text('Widget 2'),
+    Text('Widget 3'),
+  ],
+)
+----------------------//////
+
+FULL CODING
+import 'package:flutter/material.dart';
+
+class ExampleWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          Text(
+            'Hello, Flutter!',
+            style: TextStyle(fontSize: 20.0),
+          ),
+          Image.asset(
+            'assets/images/flutter_logo.png',
+            width: 200.0,
+            height: 200.0,
+          ),
+          RaisedButton(
+            onPressed: () {
+              // Aksi saat tombol ditekan
+            },
+            child: Text('Raised Button'),
+          ),
+          FlatButton(
+            onPressed: () {
+              // Aksi saat tombol ditekan
+            },
+            child: Text('Flat Button'),
+          ),
+          IconButton(
+            onPressed: () {
+              // Aksi saat tombol ditekan
+            },
+            icon: Icon(Icons.star),
+          ),
+          TextField(
+            decoration: InputDecoration(
+              labelText: 'Enter your name',
+            ),
+          ),
+          ListView(
+            children: [
+              ListTile(
+                leading: Icon(Icons.android),
+                title: Text('Item 1'),
+              ),
+              ListTile(
+                leading: Icon(Icons.code),
+                title: Text('Item 2'),
+              ),
+              ListTile(
+                leading: Icon(Icons.widgets),
+                title: Text('Item 3'),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Container(
+                width: 50.0,
+                height: 50.0,
+                color: Colors.red,
+              ),
+              Container(
+                width: 50.0,
+                height: 50.0,
+                color: Colors.green,
+              ),
+              Container(
+                width: 50.0,
+                height: 50.0,
+                color: Colors.blue,
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}

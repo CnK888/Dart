@@ -1,0 +1,74 @@
+Stateful Widget adalah salah satu jenis widget dalam Flutter yang memiliki keadaan (state) internal yang dapat berubah seiring waktu. 
+Artinya, tampilan dari Stateful Widget dapat berubah atau diperbarui ketika keadaan internalnya berubah.
+
+Berikut adalah beberapa widget yang sering digunakan dalam Stateful Widget:
+
+Container: Digunakan untuk mengatur tata letak, ukuran, dan dekorasi dari widget lain yang ada di dalamnya.
+Text: Digunakan untuk menampilkan teks pada antarmuka pengguna.
+Image: Digunakan untuk menampilkan gambar pada antarmuka pengguna.
+RaisedButton: Digunakan untuk membuat tombol yang menonjol dengan tampilan yang sedikit terangkat.
+FlatButton: Digunakan untuk membuat tombol datar tanpa efek bayangan atau tampilan terangkat.
+IconButton: Digunakan untuk membuat tombol dengan ikon saja.
+TextField: Digunakan untuk menerima input teks dari pengguna.
+ListView: Digunakan untuk menampilkan daftar item secara berurutan dalam antarmuka pengguna.
+Column: Digunakan untuk menyusun widget secara vertikal.
+Row: Digunakan untuk menyusun widget secara horizontal.
+
+Selain widget di atas, ada banyak lagi widget lain yang dapat digunakan dalam Stateful Widget. 
+Namun, perbedaannya dengan Stateless Widget adalah Stateful Widget memiliki kemampuan untuk mengubah keadaan internalnya dan memperbarui tampilan sesuai dengan perubahan tersebut. Dalam Stateful Widget, 
+terdapat kelas State yang mengelola keadaan dan diperbarui melalui metode setState().
+
+Koding:
+import 'package:flutter/material.dart';
+
+class MyStatefulWidget extends StatefulWidget {
+  @override
+  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  // Deklarasi variabel state
+  String _message = 'Hello, World!';
+
+  // Metode untuk mengubah state
+  void _updateMessage() {
+    setState(() {
+      _message = 'Hello, Flutter!';
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Stateful Widget Example'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              _message,
+              style: TextStyle(fontSize: 24),
+            ),
+            SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: _updateMessage,
+              child: Text('Change Message'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+Penjelasan:
+
+MyStatefulWidget adalah kelas Stateful Widget yang mengelola keadaan (state).
+_MyStatefulWidgetState adalah kelas State yang mengatur keadaan internal dan tampilan widget.
+Pada _MyStatefulWidgetState, terdapat variabel _message yang akan berperan sebagai keadaan internal yang dapat berubah.
+Pada _updateMessage, ketika tombol "Change Message" ditekan, metode setState akan dipanggil untuk memperbarui keadaan _message.
+Pada build, tampilan widget akan diperbarui sesuai dengan keadaan _message.
+Ketika keadaan _message berubah, tampilan akan diperbarui secara otomatis.
+Dalam contoh ini, kita membuat sebuah widget yang menampilkan pesan dan tombol "Change Message". Ketika tombol ditekan, pesan akan diubah dan tampilan akan diperbarui sesuai dengan perubahan tersebut.
